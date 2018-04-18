@@ -6,7 +6,7 @@
 /.classpath
 /.springBeans
 *.iml
-/**.project
-/**.settings/
-/**.classpath
-/**.springBeans
+**.project
+**.settings/
+**.classpath
+**.springBeans
