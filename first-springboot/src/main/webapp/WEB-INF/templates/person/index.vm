@@ -1,0 +1,30 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/resources/css/table.css" />
+</head>
+<body class="body">
+	<div>
+   
+	<table class="hovertable">
+		<tr>
+            <th>id</th>
+			<th>name</th>
+			<th>address</th>
+			<th>age</th>
+			<th>email</th>
+			<th>操作</th>
+		</tr>
+        #foreach($person in $list)
+        	<tr>
+        		<td>$person.id</td>
+        		<td>$person.name</td>
+        		<td>$person.address</td>
+        		<td>$person.age</td>
+        		<td>$person.email</td>
+                <td><button type="button">编辑</button></td>
+        	</tr>
+        #end
+    </table>
+	 </div>
+</body>
+</html>

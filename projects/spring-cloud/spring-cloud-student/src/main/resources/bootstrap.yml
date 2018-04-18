@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: student
+  cloud: 
+    zookeeper:
+      connectString: 192.168.203.81:2181
+    

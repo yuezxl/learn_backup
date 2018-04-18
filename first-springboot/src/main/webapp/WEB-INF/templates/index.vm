@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+</head>
+#set($a = [1,2])
+#set($b = [3,4])
+
+#foreach($item in $b) 
+	#set($tmp = $a.add($item))
+#end
+#foreach($item in $a)
+	$!item
+#end
+<body>&nbsp;
+    <p>这是首页</p>
+</body>
+</html>

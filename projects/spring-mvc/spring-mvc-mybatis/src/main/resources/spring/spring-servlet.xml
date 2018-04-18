@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">   
+	
+		<!--这一句处理对静态资源的访问-->
+    	<mvc:default-servlet-handler />
+		<context:component-scan base-package="zxl.personal.learn"/>
+		<mvc:annotation-driven />
+		
+	<context:property-placeholder location="classpath:mysql.properties" />  
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />  
+    	<property name="url" value="${jdbc.url}" />  
+		<property name="username" value="${jdbc.userName}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+		
+		<!--规定模板文件的类型和位置-->
+    <bean id="velocityConfigurer"
+        class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="WEB-INF/templates" />
+        <property name="velocityProperties">
+            <props>
+                <prop key="input.encoding">utf-8</prop>
+                <prop key="output.encoding">utf-8</prop>
+            </props>
+        </property>
+    </bean>
+    <!--配置附加工具，以及将后缀为vm的文件交给下面的Resolver处理-->
+    <bean id="velocityViewResolver"
+        class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        <property name="suffix" value=".vm" />
+        <property name="contentType" value="text/html;charset=utf-8" />
+    </bean>
+</beans>
